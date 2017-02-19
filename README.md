@@ -30,8 +30,8 @@ Android Intermediate (21h)
 	 
  - Lesson 8
 
-	 - Android Design
-	 - Material Design
+	 - Android Design(1h)
+	 - Material Design (1h)
  - Lesson 9
 
-  Google Play Console
+  Google Play Console (2h)
