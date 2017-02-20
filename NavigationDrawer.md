@@ -57,9 +57,58 @@ Luego de ver el ejemplo debemos identificar algunas características importantes
  - La vista del panel lateral (*navigationd drawer*) debe especificar su gravedad usando el atributo `android:layout_gravity` y con valor **start** en lugar de **left** para dar soporte a los idiomas con orientación de derecha a izquierda (RTL).
  - La vista del panel lateral especifica su ancho en **dp** y el alto debe coincidir con la vista padre. El ancho no debe superar los **320dp** para que el usuario siempre pueda ver una parte del contenido principal.
 
-###Inicializar la lista del panel lateral
+###Recibir eventos abiertos y cerrados
+Para detectar los eventos cuando se abre y cierra el menú lateral debemos llamar al `setDrawarListener` y pasar una implementación de `DrawerLayout.DrawerListener` para sobreescribir los eventos de `onDrawerOpened` y `onDrawerClosened`.
+Existe otra opción en caso nuestra actividad incluya un `ActionBar`  y es extender la clase `ActionBarDrawerToogle` la cual también implementa `DrawerLayout.DrawerListener`.
 
+```java
+public class MainActivity extends Activity {
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private CharSequence mDrawerTitle;
+    private CharSequence mTitle;
+    ...
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ...
+
+        mTitle = mDrawerTitle = getTitle();
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+                R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
+
+            /** Se llama cuando un drawer ha sido cerrado. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                getActionBar().setTitle(mTitle);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+
+            /** Se llama cuando el drawer fue abierto. */
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                getActionBar().setTitle(mDrawerTitle);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+        };
+
+        // Se define el drawer toogle como el DrawerListener
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+    }
+
+    /* Se llama cada vez que deseamos pintar el menu */
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // Si el menu lateral esta abierto se ocultaran las acciones relacionadas al contenido
+        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+        menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
+        return super.onPrepareOptionsMenu(menu);
+    }
+}
+```
 
 
 ## Referencias
