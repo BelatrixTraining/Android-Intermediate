@@ -131,3 +131,4 @@ public void onCreate(Bundle savedInstanceState) {
  - https://material.io/guidelines/components/tabs.html
  - https://developer.android.com/training/implementing-navigation/lateral.html
  - https://developer.android.com/design/patterns/swipe-views.html
+ - https://developer.android.com/training/animation/screen-slide.html
