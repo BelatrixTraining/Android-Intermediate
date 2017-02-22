@@ -6,4 +6,4 @@ Lesson 2
 **Persistence**
 
 - Shared Preferences 
-- Files (2h)
+- Files
