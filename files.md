@@ -71,3 +71,21 @@ public boolean isExternalStorageReadable() {
 }
 ```
 
+###Guardar archivos disponibles para otras aplicaciones
+Generalmente los archivos que el usuario obtenga mediante la aplicación deben guardarse en una ubicación publica del dispositivo, la cual pueda ser accedida por otras aplicaciones y el usuario pueda copiarlos fácilmente desde el dispositivo.
+Para esto, podemos hacer uso de alguno de los directorios públicos compartidos, como Music/, Pictures/ y Ringtones/.
+
+A continuación, se describe un método que crea un directorio para un nuevo álbum de fotografías en el directorio público de imágenes:
+
+```java
+public File getAlbumStorageDir(String albumName) {
+    // Get the directory for the user's public pictures directory.
+    File file = new File(Environment.getExternalStoragePublicDirectory(
+            Environment.DIRECTORY_PICTURES), albumName);
+    if (!file.mkdirs()) {
+        Log.e(LOG_TAG, "Directory not created");
+    }
+    return file;
+}
+```
+
