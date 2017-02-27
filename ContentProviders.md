@@ -357,3 +357,7 @@ Para poder usarlo, aun incluso desde nuestra aplicación, es necesario especific
             android:syncable="true"/>
 ```
 
+##Referencias
+
+ - https://github.com/androidessence/MovieDatabase
+ - http://developer.android.com/guide/topics/providers/content-providers.html
