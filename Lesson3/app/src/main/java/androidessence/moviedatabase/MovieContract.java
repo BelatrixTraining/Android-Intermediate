@@ -1,12 +1,13 @@
 package androidessence.moviedatabase;
 
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
  * Defines all of the tables and URIs needed for the Movie ContentProvider
- *
+ * <p>
  * Created by adammcneilly on 9/19/15.
  */
 public class MovieContract {
@@ -41,7 +42,7 @@ public class MovieContract {
 
         // These are special type prefixes that specify if a URI returns a list or a specific item
         public static final String CONTENT_TYPE =
-                "vnd.android.cursor.dir/" + CONTENT_URI  + "/" + PATH_MOVIE;
+                "vnd.android.cursor.dir/" + CONTENT_URI + "/" + PATH_MOVIE;
         public static final String CONTENT_ITEM_TYPE =
                 "vnd.android.cursor.item/" + CONTENT_URI + "/" + PATH_MOVIE;
 
@@ -52,12 +53,22 @@ public class MovieContract {
         public static final String COLUMN_GENRE = "movieGenre";
 
         // Define a function to build a URI to find a specific movie by it's identifier
-        public static Uri buildMovieUri(long id){
+        public static Uri buildMovieUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+        public static ContentValues getContentValue(Movie movie) {
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN_NAME, movie.getName());
+            cv.put(COLUMN_RELEASE_DATE, movie.getReleaseDate());
+            cv.put(COLUMN_GENRE, movie.getGenre());
+
+            return cv;
+
         }
     }
 
-    public static final class GenreEntry implements BaseColumns{
+    public static final class GenreEntry implements BaseColumns {
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_GENRE).build();
 
@@ -69,8 +80,15 @@ public class MovieContract {
         public static final String TABLE_NAME = "genreTable";
         public static final String COLUMN_NAME = "genreName";
 
-        public static Uri buildGenreUri(long id){
+        public static Uri buildGenreUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+        public static ContentValues getContentValue(Genre genre) {
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN_NAME, genre.getName());
+            return cv;
+
         }
     }
 }

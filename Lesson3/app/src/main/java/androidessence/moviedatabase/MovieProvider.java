@@ -120,6 +120,7 @@ public class MovieProvider extends ContentProvider {
         // this URI and any of it's descendants. By descendants, we mean any URI that begins
         // with this path.
         retCursor.setNotificationUri(getContext().getContentResolver(), uri);
+        retCursor.moveToFirst();
         return retCursor;
     }
 
