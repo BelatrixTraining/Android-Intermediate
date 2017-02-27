@@ -5,4 +5,5 @@ Lesson 2
 
 **Persistence**
 
-- [SQLite (content providers)](https://github.com/BelatrixTraining/Android-Intermediate/blob/Lesson3/SQLiteyContentProviders.md) 
+- [SQLite](https://github.com/BelatrixTraining/Android-Intermediate/blob/Lesson3/SQLite.md) 
+- [Content Providers](https://github.com/BelatrixTraining/Android-Intermediate/blob/Lesson3/ContentProviders.md) 
