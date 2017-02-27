@@ -330,6 +330,48 @@ public class SQLiteExampleActivity extends AppCompatActivity {
 }
 ```
 
+## SQLite Database Debugging 
+
+Cuando trabajemos con SQLite, abrir e inspeccionar la base de datos siempre sera útil para debugear problemas. Podemos usar las siguientes herramientas para obtener la data:
+
+### En un emulador
+
+Usar `SQLite3` para obtener la data en un emulador:
+
+```bash
+cd /path/to/my/sdk/platform-tools
+./adb shell
+run-as <app package name>
+cd /data/data/<app package name>/databases
+ls
+chmod 666 <database file name>
+sqlite3 <database file name>
+> (semi-colon terminated commands can be run here to query the data)
+> .exit
+(copy full database path)
+exit
+```
+
+Para examinarla más a fondo podemos descargar la BD de la siguiente manera:
+
+```
+./adb wait-for-device pull /data/data/<app package name>/databases/<database file name>
+```
+
+### En un dispositivo
+
+No existe un ejecutable `SQLite3` en el dispositivo así que nuestra única opción es descargar la BD de la siguiente manera:
+
+```bash
+./adb shell run-as <app package name> chmod 666 /data/data/<app package name>/databases/<database file name>
+./adb shell cp /data/data/<app package name>/databases/<database file name> /sdcard/
+./adb pull /sdcard/<database file name>
+```
+
+### Usando el *Android Device Monitor*
+
+Este se encuentra en `Tools`->`Android Device Monitor`->`File Explorer`.
+Buscar dentro de `/data/<app package name>/databases` y descargar el archivo.
 
 ##Referencias
 
