@@ -81,3 +81,4 @@ public class SoundService extends Service {
   - https://developer.android.com/guide/topics/providers/content-provider-creating.html
   - https://github.com/cpinan/AndroidNanodegree/tree/master/SuperDuo
   - https://github.com/TeclaLabsPeruTraining/Android-Fundamentals-GMD/blob/Lesson2/AppComponents/app/src/main/java/com/gmd/lessons/services/SoundService.java
+  - http://www.tutorialsface.com/2015/08/android-custom-notification-tutorial/
