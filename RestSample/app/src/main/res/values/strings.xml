@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RestSample</string>
+    <string name="logout">Cerrar sesi\u00F3n</string>
+    <string name="esta_es_una_nota">Esta es un nota</string>
+    <string name="my_note">Notes App</string>
+
+    <!--
+   á \u00E1
+   é \u00E9
+   í \u00ED
+   ó \u00F3
+   ú \u00FA
+  -->
+</resources>
