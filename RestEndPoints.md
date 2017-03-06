@@ -72,9 +72,9 @@
    
    application-type REST
    
-   secret-key 4FC950FE-9125-43B9-FF54-96BE821A8C00
+   secret-key F3C03837-D80E-A057-FF95-9F2CBB48AB00
    
-   application-id 74C97EAE-51FE-A1F2-FFD7-8289F70EDA00
+   application-id 93CDF004-1B29-C89B-FF87-5C156F5BDB00
    
    
    
