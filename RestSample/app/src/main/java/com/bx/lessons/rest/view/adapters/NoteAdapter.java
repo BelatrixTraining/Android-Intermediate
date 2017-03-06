@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.gmd.lessons.R;
+import com.bx.lessons.rest.R;
 import com.bx.lessons.rest.entity.NoteEntity;
 
 import java.util.List;

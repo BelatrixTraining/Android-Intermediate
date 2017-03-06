@@ -47,6 +47,14 @@ public class MainActivity extends AppCompatActivity implements LogInView {
         init();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(logInPresenter!=null){
+            logInPresenter.detachView();
+        }
+    }
+
     private void init() {
         eteUsername=(EditText)findViewById(R.id.eteUsername);
         etePassword=(EditText)findViewById(R.id.etePassword);

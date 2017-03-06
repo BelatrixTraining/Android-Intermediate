@@ -2,6 +2,10 @@ package com.bx.lessons.asynctaskloader.data.model;
 
 /**
  * Created by em on 8/06/16.
+{
+ "login" : value,
+ "password" : value,
+ }
  */
 public class LogInRaw {
 

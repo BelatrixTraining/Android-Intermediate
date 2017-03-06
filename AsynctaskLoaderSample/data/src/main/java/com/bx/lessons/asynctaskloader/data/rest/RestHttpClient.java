@@ -87,8 +87,8 @@ public class RestHttpClient<T> {
                 "application-type: REST"
          */
         Header contentType = new BasicHeader("Content-type", "application/json");
-        Header applicationId = new BasicHeader("application-id", "FF14D613-D0B0-6A6A-FF40-29E7E8E8D100");
-        Header secretKey = new BasicHeader("secret-key", "AA499423-00EC-1F0B-FF2E-C78F36087700");
+        Header applicationId = new BasicHeader("application-id", "F3C03837-D80E-A057-FF95-9F2CBB48AB00");
+        Header secretKey = new BasicHeader("secret-key", "93CDF004-1B29-C89B-FF87-5C156F5BDB00");
         Header applicationType = new BasicHeader("application-type", "REST");
         List<Header> headers = new ArrayList<>();
         headers.add(contentType);
