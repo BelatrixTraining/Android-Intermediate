@@ -1,37 +1,64 @@
 # Android-Intermediate
-Android Intermediate (21h)
 
- - Lesson 1
+## Aplicación de componentes de Android
 
-	 Navigation Drawer, Tabs y ViewPager (2h)
-	 
- - Lesson 2 y 3
+<img src="https://i.ytimg.com/vi/PXn_-Jd1Zv8/hqdefault.jpg" />
 
-	 Persistence
-	 - Shared Preferences y Files (2h)
-	 - SQLite (content providers) (2h)
-	 
- - Lesson 4
+Retrofit es una librería que nos facilitará las conexiones a servicios rest. En la siguiente imagen podemos ver a grandes rasgos como funciona:
 
-	 Aplicación de componentes de Android (2h)
-	 
- - Lesson 5
+<img src="https://i.ytimg.com/vi/3cN6aJmwMAg/maxresdefault.jpg" />
 
-	 Consumo de servicios	 
-	 - Consumo de servicios REST (2h)
-	 - Consumo de servicios usando Retrofit (2h)
- - Lesson 6
+Siguiendo el demo de la página de Retrofit, vamos a detallar algunos conceptos claves a tener en cuenta:
 
-	 - Android M: Runtime Permissions (1h)
-	 - Geolocalization (1h)
- - Lesson 7
+1. Para utilizar el API lo hacemos a través de una interfaz:
 
-	 Google Maps API (2h)
-	 
- - Lesson 8
+```	
+public interface GitHubService {
+  @GET("users/{user}/repos")
+  Call<List<Repo>> listRepos(@Path("user") String user);
+}
+```	
 
-	 - Android Design(1h)
-	 - Material Design (1h)
- - Lesson 9
+2. Para poder utilizar esta interfaz, debemos implementar el builder de Retrofit:
 
-  Google Play Console (2h)
+```	
+Retrofit retrofit = new Retrofit.Builder()
+    .baseUrl("https://api.github.com/")
+    .build();
+
+GitHubService service = retrofit.create(GitHubService.class);
+```	
+
+3. Cada llamada creada por lo definido anteriormente (a diferencia de Retrofit 1.x) puede realizarse de forma síncrona y asíncrona:
+
+```
+Call<List<Repo>> repos = service.listRepos("octocat");
+```
+
+4. Para incluir Retrofit como dependencia en tu proyecto:
+
+```	
+compile 'com.squareup.retrofit2:retrofit:2.2.0'
+```	
+
+5. Además hay algunas dependencias extras:
+
+```
+Gson: com.squareup.retrofit2:converter-gson
+Jackson: com.squareup.retrofit2:converter-jackson
+Moshi: com.squareup.retrofit2:converter-moshi
+Protobuf: com.squareup.retrofit2:converter-protobuf
+Wire: com.squareup.retrofit2:converter-wire
+Simple XML: com.squareup.retrofit2:converter-simplexml
+Scalars (primitives, boxed, and String): com.squareup.retrofit2:converter-scalars
+```
+
+Hay muchas otras recomendaciones, como la parte del proguard que hay que tener en cuenta al momento de ofuscar la aplicación para ser subida al play store. 
+
+## Referencias
+
+  - http://square.github.io/retrofit/
+  - https://github.com/square/retrofit
+  - http://www.vogella.com/tutorials/Retrofit/article.html
+  - https://github.com/cpinan/CapstoneProject
+  - https://inthecheesefactory.com/blog/retrofit-2.0/en
