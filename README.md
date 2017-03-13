@@ -166,3 +166,4 @@ Asi que vayamos al código.
 - http://hotchemi.github.io/PermissionsDispatcher/
 - https://developer.android.com/training/location/retrieve-current.html
 - https://developer.android.com/training/location/index.html
+- https://docs.google.com/document/d/1t2pF18sFvDzjO6ugOdxaGB-yoqKNHGAYmeRkvmd9gek/edit
