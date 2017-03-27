@@ -56,3 +56,6 @@ Light theme:
 - https://developer.android.com/training/material/animations.html
 - http://saulmm.github.io/mastering-coordinator
 - https://android-developers.googleblog.com/2015/05/android-design-support-library.html
+- https://developer.android.com/training/material/palette-colors.html
+
+
