@@ -54,3 +54,5 @@ Light theme:
 - https://android-developers.googleblog.com/2014/10/implementing-material-design-in-your.html
 - https://material.io/guidelines/
 - https://developer.android.com/training/material/animations.html
+- http://saulmm.github.io/mastering-coordinator
+- https://android-developers.googleblog.com/2015/05/android-design-support-library.html

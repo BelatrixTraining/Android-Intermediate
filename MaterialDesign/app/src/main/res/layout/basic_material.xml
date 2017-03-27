@@ -25,6 +25,19 @@
             android:background="@color/colorPrimaryDark"
             app:cardCornerRadius="20dp"></android.support.v7.widget.CardView>
 
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Edit hint"
+                android:text="Edit text" />
+        </android.support.design.widget.TextInputLayout>
+
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
